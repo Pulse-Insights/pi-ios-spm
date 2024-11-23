@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyTextType" customModule="PulseInsights" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="Z5s-dI-fUV"/>
+                <outlet property="counterLabel" destination="fUp-5N-tR5" id="Me9-iN-IF3"/>
+                <outlet property="txtHintPart" destination="ZK9-Kp-T0p" id="DPB-H6-Jt0"/>
+                <outlet property="txtInputPart" destination="GdK-in-iUa" id="234-17-Qhk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="253"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hint text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZK9-Kp-T0p">
+                    <rect key="frame" x="16" y="20" width="300" height="48"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" staticText="YES"/>
+                    </accessibility>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" placeholder="YES" id="B94-vR-dMA"/>
+                    </constraints>
+                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GdK-in-iUa" userLabel="FreeTextContent">
+                    <rect key="frame" x="16" y="20" width="300" height="204"/>
+                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUp-5N-tR5">
+                    <rect key="frame" x="274" y="232" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="fUp-5N-tR5" firstAttribute="top" secondItem="GdK-in-iUa" secondAttribute="bottom" constant="8" symbolic="YES" id="0Br-Tv-yJr"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9LY-Z6-mtL"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="trailing" secondItem="ZK9-Kp-T0p" secondAttribute="trailing" id="BAs-GS-4BY"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="top" secondItem="ZK9-Kp-T0p" secondAttribute="top" id="Nbu-50-ayv"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="leading" secondItem="ZK9-Kp-T0p" secondAttribute="leading" id="TDo-7f-ABL"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Tid-Iw-Aft"/>
+                <constraint firstItem="fUp-5N-tR5" firstAttribute="trailing" secondItem="ZK9-Kp-T0p" secondAttribute="trailing" id="WQO-gN-U0M"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="cgM-Zz-Anu"/>
+                <constraint firstItem="GdK-in-iUa" firstAttribute="centerX" secondItem="ZK9-Kp-T0p" secondAttribute="centerX" id="f6N-tZ-Zdq"/>
+                <constraint firstItem="ZK9-Kp-T0p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rYf-e9-2U2"/>
+                <constraint firstAttribute="trailing" secondItem="GdK-in-iUa" secondAttribute="trailing" constant="16" id="w2u-PN-mX3"/>
+                <constraint firstAttribute="bottom" secondItem="fUp-5N-tR5" secondAttribute="bottom" id="yLy-hr-qpV"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="99" y="-69.5"/>
+        </view>
+    </objects>
+</document>

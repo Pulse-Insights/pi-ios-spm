@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PollResultItem" customModule="PulseInsights" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="jiL-cp-3NB"/>
+                <outlet property="itemTitle" destination="ZwP-9C-poO" id="Zcu-jj-tZM"/>
+                <outlet property="resultBarBase" destination="CFd-fs-5j0" id="Yvi-a5-yOH"/>
+                <outlet property="resultBarConstraint" destination="AO4-zq-jVR" id="OGr-4A-day"/>
+                <outlet property="resultbar" destination="49M-gL-Lr3" id="DX9-Qc-wO5"/>
+                <outlet property="valueResult" destination="mUJ-if-Mxc" id="ReG-SR-xPC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwP-9C-poO" userLabel="ItemTitle">
+                    <rect key="frame" x="0.0" y="8" width="375" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="6mK-oq-lEf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49M-gL-Lr3" userLabel="ResultBar">
+                    <rect key="frame" x="0.0" y="41" width="4" height="25"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Itw-lb-TIC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CFd-fs-5j0" userLabel="ResultBarBase">
+                    <rect key="frame" x="4" y="41" width="371" height="25"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="eKr-ck-edB"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUJ-if-Mxc" userLabel="ValueResult">
+                    <rect key="frame" x="0.0" y="74" width="375" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Yv7-4N-vBx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="49M-gL-Lr3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.01" id="AO4-zq-jVR"/>
+                <constraint firstItem="ZwP-9C-poO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="GR7-nl-6wN"/>
+                <constraint firstItem="mUJ-if-Mxc" firstAttribute="top" secondItem="CFd-fs-5j0" secondAttribute="bottom" constant="8" id="INP-4K-mB8"/>
+                <constraint firstAttribute="trailing" secondItem="mUJ-if-Mxc" secondAttribute="trailing" id="Ikx-7H-ECb"/>
+                <constraint firstItem="CFd-fs-5j0" firstAttribute="leading" secondItem="49M-gL-Lr3" secondAttribute="trailing" id="Mxx-mV-DvT"/>
+                <constraint firstItem="CFd-fs-5j0" firstAttribute="top" secondItem="ZwP-9C-poO" secondAttribute="bottom" constant="8" id="OUH-CU-vvV"/>
+                <constraint firstItem="49M-gL-Lr3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Phg-NL-bZn"/>
+                <constraint firstItem="ZwP-9C-poO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q7N-2r-dmF"/>
+                <constraint firstAttribute="trailing" secondItem="CFd-fs-5j0" secondAttribute="trailing" id="Toi-le-aG4"/>
+                <constraint firstAttribute="trailing" secondItem="ZwP-9C-poO" secondAttribute="trailing" id="Yd5-8z-AEV"/>
+                <constraint firstItem="CFd-fs-5j0" firstAttribute="leading" secondItem="49M-gL-Lr3" secondAttribute="trailing" id="Zfz-gY-hpQ"/>
+                <constraint firstAttribute="bottom" secondItem="mUJ-if-Mxc" secondAttribute="bottom" constant="6" id="ZwE-ke-EEm"/>
+                <constraint firstItem="mUJ-if-Mxc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aLd-Oz-zx6"/>
+                <constraint firstItem="49M-gL-Lr3" firstAttribute="top" secondItem="ZwP-9C-poO" secondAttribute="bottom" constant="8" id="qtK-SV-TtW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="AO4-zq-jVR"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="15.5" y="-254.5"/>
+        </view>
+    </objects>
+</document>

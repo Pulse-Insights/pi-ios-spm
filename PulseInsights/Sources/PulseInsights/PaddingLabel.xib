@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaddingLabel" customModule="PulseInsights" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="qml-QQ-N7D"/>
+                <outlet property="paddingBottom" destination="Lfd-br-CKz" id="CbB-vy-Lx9"/>
+                <outlet property="paddingLeft" destination="pEe-dM-eh0" id="JBk-k0-5bU"/>
+                <outlet property="paddingRight" destination="z8F-Ob-jYx" id="zEx-Yr-DSP"/>
+                <outlet property="paddingTop" destination="l2g-9y-xcw" id="fka-Av-fAk"/>
+                <outlet property="textLabel" destination="WOq-TU-xKD" id="2XG-1B-t8k"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeightSetableUIView" customModule="PulseInsights" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOq-TU-xKD">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="WOq-TU-xKD" secondAttribute="bottom" id="Lfd-br-CKz"/>
+                <constraint firstItem="WOq-TU-xKD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="l2g-9y-xcw"/>
+                <constraint firstItem="WOq-TU-xKD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pEe-dM-eh0"/>
+                <constraint firstAttribute="trailing" secondItem="WOq-TU-xKD" secondAttribute="trailing" id="z8F-Ob-jYx"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="153"/>
+        </view>
+    </objects>
+</document>
