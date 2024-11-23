@@ -20,7 +20,7 @@ let package = Package(
         .target(
             name: "PulseInsights",
             dependencies: [],
-            path: "Sources/PulseInsights",
+            path: "PulseInsights/Sources/PulseInsights",
             exclude: ["Info.plist"],
             resources: [
                 .process("images.xcassets"),
