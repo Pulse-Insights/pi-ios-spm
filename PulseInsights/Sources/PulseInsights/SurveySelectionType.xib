@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveySelectionType">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveySelectionType" customModule="PulseInsights">
             <connections>
                 <outlet property="buttonsStack" destination="HRh-c0-5dt" id="p2s-gO-BML"/>
                 <outlet property="counterLabel" destination="BtD-Th-eC6" id="X5N-Pw-zBf"/>
