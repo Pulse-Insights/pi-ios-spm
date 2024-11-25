@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyMainViewController" customModule="PulseInsights">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyMainViewController">
             <connections>
                 <outlet property="allQuestionsView" destination="z8Q-FF-Em6" id="2wt-jU-hea"/>
                 <outlet property="allQuestionsViewTopConstraint" destination="qzp-O8-RE1" id="1bj-s4-Bbf"/>
@@ -30,11 +30,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-0t-Ntf" customClass="SurveyView" customModule="PulseInsights" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-0t-Ntf" customClass="SurveyView" customModule="PulseInsights">
                     <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1A-WQ-AxV" customClass="WidgetView" customModule="PulseInsights" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1A-WQ-AxV" customClass="WidgetView" customModule="PulseInsights">
                     <rect key="frame" x="0.0" y="336" width="414" height="400"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

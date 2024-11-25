@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyView" customModule="PulseInsights">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SurveyView">
             <connections>
                 <outlet property="afterAnswerView" destination="MOJ-eS-PqN" id="h7S-xv-5VW"/>
                 <outlet property="afterHelperView" destination="kV1-l2-wu6" id="TbX-l3-xWr"/>
@@ -56,7 +56,7 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <view opaque="NO" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpu-9N-lR9" userLabel="SurveyLayout" customClass="HeightSetableUIView" customModule="PulseInsights" customModuleProvider="target">
+                <view opaque="NO" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpu-9N-lR9" userLabel="SurveyLayout" customClass="HeightSetableUIView" customModule="PulseInsights">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDK-t8-wwk">
@@ -65,51 +65,51 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-Qn-A2Q">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcG-3r-XTH" customClass="StyledImageView" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcG-3r-XTH" customClass="StyledImageView" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" placeholder="YES" id="ZA3-cc-6Fn"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvN-Rw-w9A" userLabel="BeforeQuestion" customClass="PaddingLabel" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvN-Rw-w9A" userLabel="BeforeQuestion" customClass="PaddingLabel" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="50" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" placeholder="YES" id="KvA-Xf-wVe"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hP8-eP-Zcg" userLabel="SurveyTitle" customClass="PaddingLabel" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hP8-eP-Zcg" userLabel="SurveyTitle" customClass="PaddingLabel" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="82" width="375" height="24"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" placeholder="YES" id="oWC-jz-bk2"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvJ-ci-CsR" userLabel="Before Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvJ-ci-CsR" userLabel="Before Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="106" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" placeholder="YES" id="mRM-PQ-Ao5"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De5-9s-F1q" customClass="HeightSetableUIView" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De5-9s-F1q" customClass="HeightSetableUIView" customModule="PulseInsights">
                                             <rect key="frame" x="10" y="138" width="355" height="240"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="240" placeholder="YES" id="mgF-rE-CXR"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-eS-PqN" userLabel="After Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-eS-PqN" userLabel="After Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="378" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" placeholder="YES" id="LNu-NY-6CJ"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grg-Pi-ciK" userLabel="InnerInviteView" customClass="HeightSetableUIView" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grg-Pi-ciK" userLabel="InnerInviteView" customClass="HeightSetableUIView" customModule="PulseInsights">
                                             <rect key="frame" x="10" y="410" width="365" height="128"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-XR-6q7" customClass="PaddingLabel" customModule="PulseInsights" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-XR-6q7" customClass="PaddingLabel" customModule="PulseInsights">
                                                     <rect key="frame" x="0.0" y="0.0" width="365" height="98"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
@@ -178,7 +178,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Tj1-1S-zof" secondAttribute="trailing" id="xGT-gc-ebr"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-l2-wu6" userLabel="AfterQuestion" customClass="PaddingLabel" customModule="PulseInsights" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-l2-wu6" userLabel="AfterQuestion" customClass="PaddingLabel" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="584" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
