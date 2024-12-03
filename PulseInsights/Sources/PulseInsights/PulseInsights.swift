@@ -192,7 +192,7 @@ open class PulseInsights: NSObject {
     open func present(_ surveyID: String) {
         LocalConfig.instance.strCheckingSurveyID = surveyID
         LocalConfig.instance.bIsSurveyAPIRunning = true
-        PulseInsightsAPI.getSurveyInformation { (_ bSuccess) -> Void in
+        PulseInsightsAPI.getSurveyInformation(with: surveyID) { (_ bSuccess) -> Void in
             if !LocalConfig.instance.surveyPack.survey.surveyId.isEmpty {
                 self.getQuestionDetail()
             } else {

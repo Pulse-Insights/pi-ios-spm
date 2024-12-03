@@ -81,9 +81,13 @@ class PulseInsightsAPI {
 
     }
 
-    class func getSurveyInformation(_ callback:@escaping (_ bResult: Bool) -> Void) {
-
-        let queryUrl = composeUrlString(path: "/surveys/", queryProps: commonPropSet())
+    class func getSurveyInformation(with id: String, _ callback:@escaping (_ bResult: Bool) -> Void) {
+        // Ensure the id is not empty
+        guard !id.isEmpty else {
+            callback(false)
+            return
+        }
+        let queryUrl = composeUrlString(path: "/surveys/\(id)", queryProps: commonPropSet())
         HttpCore.requestUrl(queryUrl
         ) { (data) -> Void in
             DebugTool.debugPrintln("PulseInsightsAPI/getSurveyInformation", strMsg: data)
