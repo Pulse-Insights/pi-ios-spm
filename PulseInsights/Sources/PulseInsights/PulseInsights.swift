@@ -202,6 +202,7 @@ open class PulseInsights: NSObject {
 
         }
     }
+
     open func setDebugMode(_ enable: Bool) {
         PIPreferencesManager.sharedInstance.changeDebugModeSetting(enable)
     }
@@ -383,6 +384,9 @@ open class PulseInsights: NSObject {
     }
 
     fileprivate func displaySurvey() {
+        PulseInsightsAPI.viewedAt { bResult in
+            DebugTool.debugPrintln("viewedAt request", strMsg: "result: \(bResult)")
+        }
         if surveyInlineResult != nil {
             surveyInlineResult?.onServeResult()
         } else {

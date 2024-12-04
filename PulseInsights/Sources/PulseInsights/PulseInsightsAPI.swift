@@ -202,4 +202,23 @@ class PulseInsightsAPI {
             }
         }
     }
+
+    class func viewedAt(_ callback:@escaping (_ bResult: Bool) -> Void) {
+        let identifier = LocalConfig.instance.strAccountID
+        let viewedAt = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
+        
+        let queryParams: [String: String] = [
+            "identifier": identifier,
+            "viewed_at": viewedAt
+        ]
+        
+        let queryUrl = composeUrlString(path: "/submissions/\(LocalConfig.instance.strSubmitID)/viewed_at", queryProps: queryParams)
+        HttpCore.requestUrl(queryUrl) { (data) -> Void in
+            if data != "error" {
+                callback(true)
+            } else {
+                callback(false)
+            }
+        }
+    }
 }
