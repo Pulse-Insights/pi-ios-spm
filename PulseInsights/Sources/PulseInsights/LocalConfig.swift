@@ -45,5 +45,16 @@ class LocalConfig {
     init() {
 
     }
+    
+    func reset() {
+        surveyPack = Survey()
+        surveyTickets = []
+        pollResults = []
+        strSubmitID = ""
+        strCheckingSurveyID = ""
+        customData = [:]
+        inlineLink = [:]
+        surveyWatcherEnable = false
+    }
 
 }

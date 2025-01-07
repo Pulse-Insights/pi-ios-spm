@@ -404,11 +404,44 @@ open class PulseInsights: NSObject {
         }
     }
 
+    open func cleanup() {
+        // Clear controllers and views
+        if let controller = surveyController {
+            controller.cleanup()
+        }
+        surveyController = nil
+        mNowViewController = nil
+        
+        // Clear delegates and listeners
+        surveyInlineResult = nil
+        surveyAnsweredListener = nil
+        
+        // Clear timers
+        if LocalConfig.instance.mScanTimer != nil {
+            LocalConfig.instance.mScanTimer!.invalidate()
+            LocalConfig.instance.mScanTimer = nil
+        }
+        
+        if LocalConfig.instance.delayTriggerTimer != nil {
+            LocalConfig.instance.delayTriggerTimer?.invalidate()
+            LocalConfig.instance.delayTriggerTimer = nil
+        }
+        
+        // Clear motion manager
+        motionManager?.stopDeviceMotionUpdates()
+        motionManager = nil
+        motionResetTimer?.invalidate()
+        motionResetTimer = nil
+        
+        // Reset local config
+        LocalConfig.instance.reset()
+    }
 }
 
 extension PulseInsights: SurveyViewResult {
     public func onFinish() {
-
+        // Clean up all resources
+        cleanup()
     }
 }
 extension PulseInsights: WidgetViewResult {

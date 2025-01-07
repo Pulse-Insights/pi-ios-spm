@@ -160,4 +160,11 @@ class SurveySelectionType: UIView {
         return strMutiSelectedRes
     }
 
+    func cleanup() {
+        // Clear callbacks
+        callBackBtnClicked = nil
+        
+        // Clear data
+        multiOptionNext = ""
+    }
 }

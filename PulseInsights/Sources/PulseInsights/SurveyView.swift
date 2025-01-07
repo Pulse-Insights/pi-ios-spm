@@ -668,4 +668,28 @@ open class SurveyView: UIView {
             }
         }
     }
+    
+    func cleanup() {
+        // Clear timers
+        closeTimer?.invalidate()
+        closeTimer = nil
+        
+        // Clear delegates and callbacks
+        delegateViewResult = nil
+        pulseInsights = nil
+        
+        // Clear survey items
+        nowRunningSurveyItem = nil
+        listSurveyItem.removeAll()
+        
+        // Clear content views
+        chooseContentView.cleanup()
+        customContentView.cleanup()
+        freeTextView.cleanup()
+        
+        // Hide views
+        piSurveyInsideScrollview.goneHide()
+        buttonContainer.isHidden = true
+        piSurveyThanksmsg.isHidden = true
+    }
 }

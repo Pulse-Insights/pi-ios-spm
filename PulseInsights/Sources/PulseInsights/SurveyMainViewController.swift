@@ -129,6 +129,22 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     open func disableSurvey() {
+        // Clear timers
+        if let surveyView = piSurveyView {
+            surveyView.closeTimer?.invalidate()
+            surveyView.closeTimer = nil
+        }
+        
+        // Clear delegates
+        piSurveyView.delegateViewResult = nil
+        invitationWidget.delegateWidgetResult = nil
+        
+        // Clear survey answers
+        surveyAnswers = SurveyAnswers()
+        
+        // Cleanup PulseInsights
+        PulseInsights.getInstance.cleanup()
+        
         LocalConfig.instance.iSurveyEventCode = Define.piEventCodeSurveyJustClosed
         self.dismiss(animated: true, completion: nil)
     }
@@ -283,6 +299,22 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
 
+    }
+    
+    func cleanup() {
+        // Clear survey view
+        piSurveyView.cleanup()
+        piSurveyView.delegateViewResult = nil
+        
+        // Clear invitation widget
+        invitationWidget.delegateWidgetResult = nil
+        
+        // Clear survey answers
+        surveyAnswers = SurveyAnswers()
+        
+        // Clear table view
+        allQuestionsView.delegate = nil
+        allQuestionsView.dataSource = nil
     }
 }
 extension SurveyMainViewController: SurveyViewResult {

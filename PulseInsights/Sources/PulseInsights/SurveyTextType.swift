@@ -136,4 +136,9 @@ class SurveyTextType: UIView, UITextViewDelegate {
         let numberOfChars = newText.count // for Swift use count(newText)
         return numberOfChars <= max(maxTextLength, 0)
     }
+    
+    func cleanup() {
+        // Clear text and callbacks
+        txtInputPart.text = ""
+    }
 }

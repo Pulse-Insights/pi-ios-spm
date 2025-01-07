@@ -115,4 +115,19 @@ class SurveyCustomContentType: UIView, WKUIDelegate, WKNavigationDelegate {
     @objc fileprivate func timerClose(_ timer: Timer) {
         if mCBClolse != nil {mCBClolse!()}
     }
+    
+    func cleanup() {
+        // Clear timers
+        timerRedirect?.invalidate()
+        timerRedirect = nil
+        timerClose?.invalidate()
+        timerClose = nil
+        
+        // Clear callback
+        mCBClolse = nil
+        
+        // Clear webview
+        webView.stopLoading()
+        webView.loadHTMLString("", baseURL: nil)
+    }
 }
