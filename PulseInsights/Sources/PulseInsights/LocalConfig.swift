@@ -52,7 +52,6 @@ class LocalConfig {
         pollResults = []
         strSubmitID = ""
         strCheckingSurveyID = ""
-        customData = [:]
         inlineLink = [:]
         surveyWatcherEnable = false
     }
