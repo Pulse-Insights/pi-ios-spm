@@ -144,6 +144,18 @@ open class PulseInsights: NSObject {
         PulseInsightsAPI.setDeviceData(dictData)
     }
 
+    open func setContextData(_ data: [String: String], merge: Bool = true) {
+        if merge {
+            var currentData = LocalConfig.instance.customData
+            for (key, value) in data {
+                currentData[key] = value
+            }
+            LocalConfig.instance.customData = currentData
+        } else {
+            LocalConfig.instance.customData = data
+        }
+    }
+
     open func serve() {
 
         LocalConfig.instance.bIsSurveyAPIRunning = true
