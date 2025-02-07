@@ -8,25 +8,25 @@ To install Pulse Insights in your application, follow these steps:
 
 1. Open your project in Xcode:
 
-Go to `File` > `Swift Packages` > `Add Package Dependency...`
+- Go to `File` > `Swift Packages` > `Add Package Dependency...`
 
 2. Enter the repository URL: 
 
- - Paste the following URL: https://github.com/Pulse-Insights/pi-ios-spm
+- Paste the following URL: https://github.com/Pulse-Insights/pi-ios-spm
 
 3. Choose the version:
 
-Select the version you want to install. We recommend using the latest release for the most up-to-date features and bug fixes.
+- Select the version you want to install. We recommend using the latest release for the most up-to-date features and bug fixes.
 
 4. Add the package:
 
-Xcode will automatically resolve the package and add it to your project.
+- Xcode will automatically resolve the package and add it to your project.
 
 ### Manual Installation
 
 1. Clone the repository:
 
-Run the following command in your terminal:
+- Run the following command in your terminal:
 
 ```
 git clone https://github.com/Pulse-Insights/pi-ios-spm.git
@@ -38,7 +38,7 @@ git clone https://github.com/Pulse-Insights/pi-ios-spm.git
 
 3. Link necessary frameworks:
 
-Ensure that your project links the required frameworks such as UIKit and CoreMotion.
+- Ensure that your project links the required frameworks such as UIKit and CoreMotion.
 
 ## Upgrading
 
@@ -46,7 +46,7 @@ Ensure that your project links the required frameworks such as UIKit and CoreMot
 
 1. Open your project in Xcode:
 
-Go to `File` > `Swift Packages` > `Update to Latest Package Versions`.
+- Go to `File` > `Swift Packages` > `Update to Latest Package Versions`.
 
 2. Select the Pulse Insights package:
 
@@ -152,8 +152,8 @@ If you integrate `InlineSurveyView` with the nib/xib, you can assign the trackin
 
 ```swift4.2
 override func viewDidLoad() {
-        super.viewDidLoad()
-        inlineSurveyView?.setIdentifier(className: String) // assume the inlineSurveyView have been initialized
+    super.viewDidLoad()
+    inlineSurveyView?.setIdentifier(className: String) // assume the inlineSurveyView have been initialized
 }
 ```
 
@@ -161,10 +161,10 @@ Here's another example of assigning the identifier for the inline view from xib
 
 ```swift4.2
 @IBOutlet weak var inlineXibView: InlineSurveyView! {
-        didSet {
-            inlineXibView?.setIdentifier("InlineXib")
-        }
+    didSet {  
+        inlineXibView?.setIdentifier("InlineXib")
     }
+}
 ```
 
 If you prefer, setup the identifier with the nib layout, as the following screenshot shows. You can find the `Identifier` attribute from the Xcode interface
