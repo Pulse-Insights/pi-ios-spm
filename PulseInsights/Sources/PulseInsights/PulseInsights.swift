@@ -155,6 +155,10 @@ open class PulseInsights: NSObject {
             LocalConfig.instance.customData = data
         }
     }
+    
+    open func clearContextData() {
+        LocalConfig.instance.customData = [:]
+    }
 
     open func serve() {
 
