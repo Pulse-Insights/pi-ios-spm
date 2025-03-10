@@ -14,23 +14,30 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Set up Xcode
-      uses: maxim-lobanov/setup-xcode@v1
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
       with:
-        xcode-version: '16.2'
-
-    - name: Get iOS SDK Path
+        ruby-version: '3.0'
+        bundler-cache: true
+    
+    - name: Install Fastlane
+      run: gem install fastlane
+    
+    - name: Create Fastlane configuration
       run: |
-        IOS_SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
-        echo "iOS SDK Path: $IOS_SDK_PATH"
-        echo "IOS_SDK_PATH=$IOS_SDK_PATH" >> $GITHUB_ENV
+        mkdir -p fastlane
+        cat > fastlane/Fastfile << 'EOF'
+        default_platform(:ios)
         
-        CURRENT_IOS_VERSION=$(xcrun simctl list runtimes | grep iOS | tail -1 | sed -E 's/.*iOS ([0-9]+\.[0-9]+).*/\1/')
-        echo "Current iOS Version: $CURRENT_IOS_VERSION"
-        echo "CURRENT_IOS_VERSION=$CURRENT_IOS_VERSION" >> $GITHUB_ENV
-
-    - name: Build and Test with Swift Package Manager
-      run: |
-        swift test \
-          -Xswiftc "-sdk" -Xswiftc "$IOS_SDK_PATH" \
-          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios18.1-simulator"
+        platform :ios do
+          desc "Run tests"
+          lane :test do
+            Dir.chdir("..") do
+              sh("set -o pipefail && xcodebuild test -scheme PulseInsights -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator | xcpretty")
+            end
+          end
+        end
+        EOF
+    
+    - name: Run tests with Fastlane
+      run: fastlane test
