@@ -19,12 +19,14 @@ jobs:
       with:
         xcode-version: '16.2'
     
-    - name: Environment info
+    - name: Get iOS SDK Path
       run: |
-        xcodebuild -version
-        swift --version
-        xcrun simctl list
-      
-    - name: Build and Test with Swift Package Manager
+        IOS_SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
+        echo "iOS SDK Path: $IOS_SDK_PATH"
+        echo "IOS_SDK_PATH=$IOS_SDK_PATH" >> $GITHUB_ENV
+    
+    - name: Build and Test with Swift Package Manager for iOS
       run: |
-        swift test -v --enable-test-discovery
+        swift test -v --enable-test-discovery \
+          -Xswiftc "-sdk" -Xswiftc "$IOS_SDK_PATH" \
+          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios17.0-simulator"
