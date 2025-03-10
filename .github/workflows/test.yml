@@ -18,17 +18,19 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '16.2'
-    
+
     - name: Get iOS SDK Path
       run: |
         IOS_SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
         echo "iOS SDK Path: $IOS_SDK_PATH"
+        echo "IOS_SDK_PATH=$IOS_SDK_PATH" >> $GITHUB_ENV
         
-        IOS_VERSION=$(xcrun simctl list runtimes | grep iOS | tail -1 | sed -E 's/.*iOS ([0-9]+\.[0-9]+).*/\1/')
-        echo "iOS Version: $IOS_VERSION"
-    
+        CURRENT_IOS_VERSION=$(xcrun simctl list runtimes | grep iOS | tail -1 | sed -E 's/.*iOS ([0-9]+\.[0-9]+).*/\1/')
+        echo "Current iOS Version: $CURRENT_IOS_VERSION"
+        echo "CURRENT_IOS_VERSION=$CURRENT_IOS_VERSION" >> $GITHUB_ENV
+
     - name: Build and Test with Swift Package Manager
       run: |
         swift test \
-          -Xswiftc "-sdk" -Xswiftc "$(xcrun --sdk iphonesimulator --show-sdk-path)" \
-          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios$IOS_VERSION-simulator"
+          -Xswiftc "-sdk" -Xswiftc "$IOS_SDK_PATH" \
+          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios18.1-simulator"
