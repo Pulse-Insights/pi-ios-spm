@@ -40,8 +40,7 @@ let package = Package(
         .testTarget(
             name: "PulseInsightsTests",
             dependencies: ["PulseInsights"],
-            path: "Tests/PulseInsightsTests",
-            exclude: ["UI"]
+            path: "Tests/PulseInsightsTests"
         ),
     ],
     swiftLanguageVersions: [.v5]
