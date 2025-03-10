@@ -19,13 +19,12 @@ jobs:
       with:
         xcode-version: '16.2'
     
-    - name: List available destinations
-      run: xcodebuild -showdestinations -scheme PulseInsights
+    - name: Environment info
+      run: |
+        xcodebuild -version
+        swift --version
+        xcrun simctl list
       
-    - name: Build for iOS
+    - name: Build and Test with Swift Package Manager
       run: |
-        xcodebuild build -scheme PulseInsights -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" -sdk iphonesimulator
-    
-    - name: Run tests
-      run: |
-        xcodebuild test -scheme PulseInsights -destination "platform=iOS Simulator,name=iPhone 16,OS=latest" -sdk iphonesimulator
+        swift test -v --enable-test-discovery
