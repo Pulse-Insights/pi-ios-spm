@@ -19,32 +19,16 @@ jobs:
       with:
         xcode-version: '16.2'
     
-    - name: Check available simulator runtimes
+    - name: Get iOS SDK Path
       run: |
-        xcrun simctl list runtimes
-        echo "Available device types:"
-        xcrun simctl list devicetypes
-    
-    - name: Create iOS simulator
-      run: |
-        RUNTIME=$(xcrun simctl list runtimes | grep iOS | tail -1 | cut -d ' ' -f 7)
-        DEVICE=$(xcrun simctl list devicetypes | grep iPhone | tail -1 | cut -d ' ' -f 1)
-        echo "Using runtime: $RUNTIME and device: $DEVICE"
+        IOS_SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
+        echo "iOS SDK Path: $IOS_SDK_PATH"
         
-        UDID=$(xcrun simctl create "Test Device" "$DEVICE" "$RUNTIME")
-        echo "Created simulator with UDID: $UDID"
-        echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
-        
-        xcrun simctl boot $UDID
+        IOS_VERSION=$(xcrun simctl list runtimes | grep iOS | tail -1 | sed -E 's/.*iOS ([0-9]+\.[0-9]+).*/\1/')
+        echo "iOS Version: $IOS_VERSION"
     
-    - name: Generate Xcode project
-      run: swift package generate-xcodeproj
-    
-    - name: Build and Test
+    - name: Build and Test with Swift Package Manager
       run: |
-        set -o pipefail && xcodebuild test \
-          -project PulseInsights.xcodeproj \
-          -scheme "PulseInsights-Package" \
-          -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
-          -sdk iphonesimulator \
-          ONLY_ACTIVE_ARCH=YES | xcpretty
+        swift test \
+          -Xswiftc "-sdk" -Xswiftc "$(xcrun --sdk iphonesimulator --show-sdk-path)" \
+          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios$IOS_VERSION-simulator"
