@@ -19,14 +19,14 @@ jobs:
       with:
         xcode-version: '16.2'
     
-    - name: Get iOS SDK Path
-      run: |
-        IOS_SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
-        echo "iOS SDK Path: $IOS_SDK_PATH"
-        echo "IOS_SDK_PATH=$IOS_SDK_PATH" >> $GITHUB_ENV
+    - name: Generate Xcode project
+      run: swift package generate-xcodeproj
     
-    - name: Build and Test with Swift Package Manager for iOS
+    - name: Create iOS simulator
       run: |
-        swift test -v --enable-test-discovery \
-          -Xswiftc "-sdk" -Xswiftc "$IOS_SDK_PATH" \
-          -Xswiftc "-target" -Xswiftc "x86_64-apple-ios17.0-simulator"
+        UDID=$(xcrun simctl create "iPhone 15" com.apple.CoreSimulator.SimDeviceType.iPhone-15 com.apple.CoreSimulator.SimRuntime.iOS-17-4)
+        echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
+    
+    - name: Build and Test
+      run: |
+        set -o pipefail && xcodebuild test -project PulseInsights.xcodeproj -scheme PulseInsights-Package -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" -sdk iphonesimulator | xcpretty
