@@ -19,14 +19,32 @@ jobs:
       with:
         xcode-version: '16.2'
     
-    - name: Generate Xcode project
-      run: swift package generate-xcodeproj
+    - name: Check available simulator runtimes
+      run: |
+        xcrun simctl list runtimes
+        echo "Available device types:"
+        xcrun simctl list devicetypes
     
     - name: Create iOS simulator
       run: |
-        UDID=$(xcrun simctl create "iPhone 15" com.apple.CoreSimulator.SimDeviceType.iPhone-15 com.apple.CoreSimulator.SimRuntime.iOS-17-4)
+        RUNTIME=$(xcrun simctl list runtimes | grep iOS | tail -1 | cut -d ' ' -f 7)
+        DEVICE=$(xcrun simctl list devicetypes | grep iPhone | tail -1 | cut -d ' ' -f 1)
+        echo "Using runtime: $RUNTIME and device: $DEVICE"
+        
+        UDID=$(xcrun simctl create "Test Device" "$DEVICE" "$RUNTIME")
+        echo "Created simulator with UDID: $UDID"
         echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
+        
+        xcrun simctl boot $UDID
+    
+    - name: Generate Xcode project
+      run: swift package generate-xcodeproj
     
     - name: Build and Test
       run: |
-        set -o pipefail && xcodebuild test -project PulseInsights.xcodeproj -scheme PulseInsights-Package -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" -sdk iphonesimulator | xcpretty
+        set -o pipefail && xcodebuild test \
+          -project PulseInsights.xcodeproj \
+          -scheme "PulseInsights-Package" \
+          -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
+          -sdk iphonesimulator \
+          ONLY_ACTIVE_ARCH=YES | xcpretty
