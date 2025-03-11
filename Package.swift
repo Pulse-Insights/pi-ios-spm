@@ -37,6 +37,11 @@ let package = Package(
                 .process("WidgetView.xib")
             ]
         ),
+        .testTarget(
+            name: "PulseInsightsTests",
+            dependencies: ["PulseInsights"],
+            path: "Tests/PulseInsightsTests"
+        ),
     ],
     swiftLanguageVersions: [.v5]
 )
