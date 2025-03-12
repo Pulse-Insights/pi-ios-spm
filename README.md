@@ -70,6 +70,10 @@ git pull origin main
 
 - Clean and build your project to ensure all changes are applied.
 
+## Demo app
+
+You can try with https://github.com/Pulse-Insights/pi-iOS-example-app to have a better view!
+
 ## Usage
 
 ### 1. Initialization
