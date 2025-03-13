@@ -269,6 +269,8 @@ You can also use method `setContextData` to add or update these data as follows:
 PulseInsights.getInstance.setContextData(["author": "Ann Smith", "variant": "a"])
 ``` 
 
+You can also use method `clearContextData()` to cleal all data you set before.
+
 If using Context Data for targeting, it should be defined before `PulseInsights.getInstance.serve()`, since that line triggers the evaluation for whether to return a survey on the current pageview.
 
 ### 11. Device data
