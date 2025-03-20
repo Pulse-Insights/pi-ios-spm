@@ -173,7 +173,8 @@ Here's another example of assigning the identifier for the inline view from xib
 
 If you prefer, setup the identifier with the nib layout, as the following screenshot shows. You can find the `Identifier` attribute from the Xcode interface
 
-![Xcode interface](Develop/res/pi-inline-nib.png "Identifier")
+<img width="281" alt="pi-inline-nib" src="https://github.com/user-attachments/assets/4144fb47-a0ee-4a90-b4ae-5514d9848749" />
+
 
 ### 6. Survey rendering
 
