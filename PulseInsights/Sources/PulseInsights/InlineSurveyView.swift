@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 open class InlineSurveyView: SurveyView {
-    var viewOnDisplay = false
+    @objc public var viewOnDisplay = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         switchInlineType(true)
@@ -61,6 +61,9 @@ extension InlineSurveyView: SurveyInlineResult {
     }
 
     public func onFinish() {
+        // Post notification for React Native bridge
+        NotificationCenter.default.post(name: NSNotification.Name("PulseInsightsInlineSurveyFinished"), object: nil)
+        
         finish()
     }
 

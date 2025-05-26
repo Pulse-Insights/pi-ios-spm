@@ -412,11 +412,15 @@ open class SurveyView: UIView {
     }
     fileprivate func disableSurvey() {
         LocalConfig.instance.iSurveyEventCode = Define.piEventCodeSurveyJustClosed
+        
+        // For inline surveys, post notification that will be captured by React Native bridge
+        if inlineEnable && inlineType {
+            NotificationCenter.default.post(name: NSNotification.Name("PulseInsightsInlineSurveyFinished"), object: nil)
+            closeView()
+        }
+        
         if delegateViewResult != nil {
             delegateViewResult?.onFinish()
-        }
-        if inlineEnable && inlineType {
-            closeView()
         }
     }
     fileprivate func surveyEnd() {

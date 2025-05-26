@@ -71,6 +71,9 @@ open class PulseInsights: NSObject {
         self.surveyInlineResult = nil
         self.setScanFrequency(LocalConfig.instance.iTimerDurationInSecond)
         LocalConfig.instance.iSurveyEventCode = Define.piEventCodeSurveyJustClosed
+        
+        // Post notification for React Native bridge to detect survey completion
+        NotificationCenter.default.post(name: NSNotification.Name("PulseInsightsInlineSurveyFinished"), object: nil)
     }
 
     open func setScanFrequency(_ frequencyInSecond: NSInteger) {
@@ -205,6 +208,7 @@ open class PulseInsights: NSObject {
             }
         }
     }
+
     open func present(_ surveyID: String) {
         LocalConfig.instance.strCheckingSurveyID = surveyID
         LocalConfig.instance.bIsSurveyAPIRunning = true
