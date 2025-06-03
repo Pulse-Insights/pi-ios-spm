@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
 
     func loadViewFromXib(nibName: String = "") {
-        let bundle = Bundle.pulseInsightsBundle(for: type(of: self))
+        let bundle = Bundle.pulseInsightsBundle
         let nibNameToLoad = nibName.isEmpty ? self.className : nibName
         if let view = bundle.loadNibNamed(nibNameToLoad, owner: self, options: nil as [UINib.OptionsKey: Any]?)?.first as? UIView {
             addSubview(view)
