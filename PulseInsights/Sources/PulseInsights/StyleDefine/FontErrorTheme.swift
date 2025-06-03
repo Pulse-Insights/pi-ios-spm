@@ -11,7 +11,7 @@ import Foundation
 open class FontErrorTheme: FontBaseTheme {
     init() {
         super.init()
-        var fontColor = ColorObject(textCode: "#FF0000")
+        let fontColor = ColorObject(textCode: "#FF0000")
         self.fontColor = fontColor
     }
 }

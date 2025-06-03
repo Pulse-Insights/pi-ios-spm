@@ -26,7 +26,7 @@ class SurveyMainViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.modalPresentationStyle = .custom
-        Bundle.module.loadNibNamed("SurveyMainViewController", owner: self, options: nil)
+        Bundle.pulseInsightsBundle(for: SurveyMainViewController.self).loadNibNamed("SurveyMainViewController", owner: self, options: nil as [UINib.OptionsKey: Any]?)
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         UIApplication.shared.isStatusBarHidden = true
 

@@ -12,12 +12,12 @@ import UIKit
 extension UIView {
 
     func loadViewFromXib(nibName: String = "") {
-        let bundle = Bundle.module
+        let bundle = Bundle.pulseInsightsBundle(for: type(of: self))
         let nibNameToLoad = nibName.isEmpty ? self.className : nibName
-        if let view = bundle.loadNibNamed(nibNameToLoad, owner: self, options: nil)?.first as? UIView {
+        if let view = bundle.loadNibNamed(nibNameToLoad, owner: self, options: nil as [UINib.OptionsKey: Any]?)?.first as? UIView {
             addSubview(view)
             view.frame = self.bounds
-            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            view.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
         }
     }
 

@@ -42,7 +42,7 @@ class PulseInsightsAPI {
         let clientKey: String = PIPreferencesManager.sharedInstance.getClientKey()
         var props = commonPropSet()
 
-        var customData: [String: String] = LocalConfig.instance.customData
+        let customData: [String: String] = LocalConfig.instance.customData
         if !clientKey.isEmpty {
             props["client_key"] = PIPreferencesManager.sharedInstance.getClientKey()
         }
