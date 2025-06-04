@@ -8,7 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PulseInsightsSPM'
-  s.version          = '1.0.11' # Matched to your Package.swift platform setting
+  s.module_name      = 'PulseInsights'
+  s.version          = '1.0.12' # Matched to your Package.swift platform setting
   s.summary          = 'PulseInsights survey solution for iOS app.'
   
   # This description is used to generate tags and improve search results.
