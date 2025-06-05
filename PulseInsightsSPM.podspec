@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'PulseInsightsSPM'
   s.module_name      = 'PulseInsights'
-  s.version          = '1.0.12' # Matched to your Package.swift platform setting
+  s.version          = '1.0.13'
   s.summary          = 'PulseInsights survey solution for iOS app.'
   
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Pulse Insights' => 'hello@pulseinsights.com' }
   s.source           = { :git => 'https://github.com/Pulse-Insights/pi-ios-spm.git', :tag => s.version.to_s }
   
-  s.ios.deployment_target = '14.0' #
+  s.ios.deployment_target = '14.0'
   s.swift_version = '5.0'
   
   s.source_files = 'PulseInsights/Sources/PulseInsights/**/*.swift'
