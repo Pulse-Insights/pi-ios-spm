@@ -49,6 +49,13 @@ open class PulseInsights: NSObject {
 //        self.setScanFrequency(LocalConfig.instance.iTimerDurationInSecond)
         LocalConfig.instance.mPulseInsightLibraryItem = self
         self.setDebugMode(enableDebugMode)
+        
+        // Check if host is set and warn if not
+        let host = PIPreferencesManager.sharedInstance.getServerHost()
+        if host.isEmpty {
+            print("[PulseInsights Warning] Host hasn't been set. Please call setHost() with your specific host before using the SDK.")
+        }
+        
 //        Registe custom font
 //        do {
 //            try UIFont.register(fileNameString: "XFINITYMStandard-Bold", type: "otf")
@@ -167,6 +174,19 @@ open class PulseInsights: NSObject {
 
         LocalConfig.instance.bIsSurveyAPIRunning = true
         LocalConfig.instance.iInstallDays = getAppInstallDays()
+        
+        // Check if host is set
+        let host = PIPreferencesManager.sharedInstance.getServerHost()
+        if host.isEmpty {
+            print("[PulseInsights Error] Host hasn't been set. Please call setHost() before using the SDK.")
+            if let window = UIApplication.shared.keyWindow {
+                window.showToast(text: "[PulseInsights Error] Host hasn't been set")
+            }
+            self.surveyInlineResult?.onFinish()
+            LocalConfig.instance.bIsSurveyAPIRunning = false
+            return
+        }
+        
         PulseInsightsAPI.serve { (bSuccess) -> Void in
             if bSuccess {
                 if !LocalConfig.instance.surveyPack.survey.surveyId.isEmpty {
@@ -212,6 +232,19 @@ open class PulseInsights: NSObject {
     open func present(_ surveyID: String) {
         LocalConfig.instance.strCheckingSurveyID = surveyID
         LocalConfig.instance.bIsSurveyAPIRunning = true
+        
+        // Check if host is set
+        let host = PIPreferencesManager.sharedInstance.getServerHost()
+        if host.isEmpty {
+            print("[PulseInsights Error] Host hasn't been set. Please call setHost() before using the SDK.")
+            if let window = UIApplication.shared.keyWindow {
+                window.showToast(text: "[PulseInsights Error] Host hasn't been set")
+            }
+            self.surveyInlineResult?.onFinish()
+            LocalConfig.instance.bIsSurveyAPIRunning = false
+            return
+        }
+        
         PulseInsightsAPI.getSurveyInformation(with: surveyID) { (_ bSuccess) -> Void in
             if !LocalConfig.instance.surveyPack.survey.surveyId.isEmpty {
                 self.getQuestionDetail()

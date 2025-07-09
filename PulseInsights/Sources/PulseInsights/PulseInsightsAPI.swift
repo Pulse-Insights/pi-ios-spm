@@ -24,9 +24,15 @@ class PulseInsightsAPI {
     }
 
     class func composeUrlString(path: String = "", queryProps: [String: String] = [String: String]()) -> String {
+        let host = PIPreferencesManager.sharedInstance.getServerHost()
+        if host.isEmpty {
+            print("[PulseInsights Error] Host hasn't been set. Please call setHost() before using the SDK.")
+            return "Invalid host"
+        }
+        
         var urlComponent = URLComponents()
         urlComponent.scheme = "https"
-        urlComponent.host = PIPreferencesManager.sharedInstance.getServerHost()
+        urlComponent.host = host
         if !path.isEmpty {
             urlComponent.path = path
         }
