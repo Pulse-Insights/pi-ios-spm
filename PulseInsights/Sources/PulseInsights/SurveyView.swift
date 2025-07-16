@@ -26,7 +26,6 @@ open class SurveyView: UIView {
     @IBOutlet weak var afterHelperView: PaddingLabel! {
         didSet {
             LocalConfig.instance.themeStyle.helper.applyMargin(labelView: afterHelperView)
-
         }
     }
 
@@ -169,7 +168,6 @@ open class SurveyView: UIView {
         }
     }
     @IBOutlet weak var zeroHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var standHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var closeButton: UIButton! {
         didSet {
             closeButton.setTitle("\u{2715}", for: .normal)

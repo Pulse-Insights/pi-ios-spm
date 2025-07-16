@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,6 +34,10 @@
                 <outlet property="inviteButton" destination="ZHx-mO-wHC" id="35Q-dg-EHH"/>
                 <outlet property="inviteLabel" destination="aA9-XR-6q7" id="clO-Nk-ZCd"/>
                 <outlet property="logoView" destination="70Y-le-hK5" id="XPS-Rc-3t8"/>
+                <outlet property="mainPaddingBottom" destination="BgJ-O3-dnU" id="uJV-fa-jeY"/>
+                <outlet property="mainPaddingLeft" destination="8Wm-nY-0Vf" id="df3-gu-MeQ"/>
+                <outlet property="mainPaddingRight" destination="cSH-Dq-PaZ" id="Qp3-uA-Jgb"/>
+                <outlet property="mainPaddingTop" destination="At8-LR-Ffk" id="bzW-kY-u7s"/>
                 <outlet property="outContainer" destination="4hS-EZ-xm9" id="xid-ul-Jgr"/>
                 <outlet property="piSurveyInsideScrollview" destination="De5-9s-F1q" id="Ioq-ee-8co"/>
                 <outlet property="piSurveyLayout" destination="wpu-9N-lR9" id="TNn-D4-0fI"/>
@@ -63,7 +67,7 @@
                             <rect key="frame" x="0.0" y="34" width="375" height="633"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-Qn-A2Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcG-3r-XTH" customClass="StyledImageView" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -86,28 +90,35 @@
                                                 <constraint firstAttribute="height" constant="24" placeholder="YES" id="oWC-jz-bk2"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvJ-ci-CsR" userLabel="Before Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-l2-wu6" userLabel="AfterQuestion" customClass="PaddingLabel" customModule="PulseInsights">
                                             <rect key="frame" x="0.0" y="106" width="375" height="32"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" placeholder="YES" id="2mg-W2-Trg"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvJ-ci-CsR" userLabel="Before Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights">
+                                            <rect key="frame" x="0.0" y="138" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" placeholder="YES" id="mRM-PQ-Ao5"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De5-9s-F1q" customClass="HeightSetableUIView" customModule="PulseInsights">
-                                            <rect key="frame" x="10" y="138" width="355" height="240"/>
+                                            <rect key="frame" x="10" y="170" width="355" height="240"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="240" placeholder="YES" id="mgF-rE-CXR"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-eS-PqN" userLabel="After Answer View" customClass="AnswerBeforeAfterView" customModule="PulseInsights">
-                                            <rect key="frame" x="0.0" y="378" width="375" height="32"/>
+                                            <rect key="frame" x="0.0" y="410" width="375" height="32"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" placeholder="YES" id="LNu-NY-6CJ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grg-Pi-ciK" userLabel="InnerInviteView" customClass="HeightSetableUIView" customModule="PulseInsights">
-                                            <rect key="frame" x="10" y="410" width="365" height="128"/>
+                                            <rect key="frame" x="10" y="442" width="365" height="128"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-XR-6q7" customClass="PaddingLabel" customModule="PulseInsights">
                                                     <rect key="frame" x="0.0" y="0.0" width="365" height="98"/>
@@ -149,7 +160,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txt-xt-ddt" userLabel="ButtonArea">
-                                            <rect key="frame" x="125" y="554" width="125" height="30"/>
+                                            <rect key="frame" x="125" y="586" width="125" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tj1-1S-zof">
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
@@ -178,13 +189,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="Tj1-1S-zof" secondAttribute="trailing" id="xGT-gc-ebr"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV1-l2-wu6" userLabel="AfterQuestion" customClass="PaddingLabel" customModule="PulseInsights">
-                                            <rect key="frame" x="0.0" y="584" width="375" height="32"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="32" placeholder="YES" id="2mg-W2-Trg"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -196,17 +200,17 @@
                                         <constraint firstItem="Txt-xt-ddt" firstAttribute="top" secondItem="grg-Pi-ciK" secondAttribute="bottom" constant="16" id="Kwn-XX-TNc"/>
                                         <constraint firstItem="lcG-3r-XTH" firstAttribute="leading" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" id="LI5-NC-6fp"/>
                                         <constraint firstItem="BvN-Rw-w9A" firstAttribute="top" secondItem="lcG-3r-XTH" secondAttribute="bottom" id="P0a-aL-yzt"/>
-                                        <constraint firstAttribute="bottom" secondItem="kV1-l2-wu6" secondAttribute="bottom" id="S2T-fZ-bXW"/>
-                                        <constraint firstItem="yvJ-ci-CsR" firstAttribute="top" secondItem="hP8-eP-Zcg" secondAttribute="bottom" id="Sq6-nj-ipx"/>
-                                        <constraint firstItem="kV1-l2-wu6" firstAttribute="top" secondItem="Txt-xt-ddt" secondAttribute="bottom" id="Tpc-AF-Mgj"/>
+                                        <constraint firstAttribute="bottom" secondItem="Txt-xt-ddt" secondAttribute="bottom" constant="16" id="UFn-8n-zG6"/>
                                         <constraint firstItem="lcG-3r-XTH" firstAttribute="top" secondItem="Mmy-Qn-A2Q" secondAttribute="top" id="ViD-Px-iV0"/>
                                         <constraint firstItem="MOJ-eS-PqN" firstAttribute="top" secondItem="De5-9s-F1q" secondAttribute="bottom" id="Wdr-ZW-dBO"/>
+                                        <constraint firstItem="yvJ-ci-CsR" firstAttribute="top" secondItem="kV1-l2-wu6" secondAttribute="bottom" id="XO3-Vc-PmH"/>
                                         <constraint firstAttribute="trailing" secondItem="yvJ-ci-CsR" secondAttribute="trailing" id="ZZy-IY-KW1"/>
                                         <constraint firstItem="Txt-xt-ddt" firstAttribute="centerX" secondItem="Mmy-Qn-A2Q" secondAttribute="centerX" id="ZdT-qu-Y3c"/>
                                         <constraint firstAttribute="trailing" secondItem="grg-Pi-ciK" secondAttribute="trailing" id="a4X-A6-Cr9"/>
                                         <constraint firstAttribute="trailing" secondItem="kV1-l2-wu6" secondAttribute="trailing" id="a9g-hX-IBa"/>
                                         <constraint firstItem="hP8-eP-Zcg" firstAttribute="top" secondItem="BvN-Rw-w9A" secondAttribute="bottom" id="f2M-NC-Lw1"/>
                                         <constraint firstItem="hP8-eP-Zcg" firstAttribute="leading" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" id="gid-L8-pbY"/>
+                                        <constraint firstItem="kV1-l2-wu6" firstAttribute="top" secondItem="hP8-eP-Zcg" secondAttribute="bottom" id="gov-qK-aq4"/>
                                         <constraint firstItem="BvN-Rw-w9A" firstAttribute="leading" secondItem="Mmy-Qn-A2Q" secondAttribute="leading" id="k4a-00-2LI"/>
                                         <constraint firstAttribute="trailing" secondItem="De5-9s-F1q" secondAttribute="trailing" constant="10" id="kJN-Rx-6qH"/>
                                         <constraint firstAttribute="trailing" secondItem="BvN-Rw-w9A" secondAttribute="trailing" id="kMu-Q3-i0t"/>
@@ -287,10 +291,12 @@
                 <constraint firstItem="wpu-9N-lR9" firstAttribute="leading" secondItem="xNf-MI-jkt" secondAttribute="leading" id="8Wm-nY-0Vf"/>
                 <constraint firstAttribute="bottom" secondItem="wpu-9N-lR9" secondAttribute="bottom" id="A6Z-sF-FaY"/>
                 <constraint firstItem="wpu-9N-lR9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="At8-LR-Ffk"/>
+                <constraint firstItem="xNf-MI-jkt" firstAttribute="bottom" secondItem="wpu-9N-lR9" secondAttribute="bottom" id="BgJ-O3-dnU"/>
                 <constraint firstItem="RDK-t8-wwk" firstAttribute="bottom" secondItem="4hS-EZ-xm9" secondAttribute="bottom" id="NT8-fX-Buo"/>
                 <constraint firstAttribute="bottom" secondItem="4hS-EZ-xm9" secondAttribute="bottom" id="QnD-3q-T6E"/>
                 <constraint firstItem="xNf-MI-jkt" firstAttribute="trailing" secondItem="wpu-9N-lR9" secondAttribute="trailing" id="cSH-Dq-PaZ"/>
                 <constraint firstItem="4hS-EZ-xm9" firstAttribute="leading" secondItem="xNf-MI-jkt" secondAttribute="leading" id="eJp-b2-nhw"/>
+                <constraint firstItem="xNf-MI-jkt" firstAttribute="top" secondItem="wpu-9N-lR9" secondAttribute="top" constant="20" id="zZS-wO-Nzw"/>
                 <constraint firstItem="4hS-EZ-xm9" firstAttribute="top" secondItem="xNf-MI-jkt" secondAttribute="top" id="zpr-rC-zka"/>
             </constraints>
             <point key="canvasLocation" x="132" y="152.47376311844079"/>

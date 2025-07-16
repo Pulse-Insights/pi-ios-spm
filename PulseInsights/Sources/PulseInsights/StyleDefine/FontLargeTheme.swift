@@ -18,10 +18,10 @@ open class FontLargeTheme: FontBaseTheme {
         let formater = FontFormater()
         formater.alignment = alignment
         formater.fontSize = fontSize
-        formater.fontFace = "XfinityStandard"
+        formater.fontFace = fontFace
         formater.fontColor = fontColor
         formater.fontStyle = style
-        formater.fontWeight = 700
+        formater.fontWeight = fontWeight
         return formater
         
     }

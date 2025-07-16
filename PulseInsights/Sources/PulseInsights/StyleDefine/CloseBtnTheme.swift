@@ -10,7 +10,7 @@ import Foundation
 
 open class CloseBtnTheme {
     var fontColor = ColorObject(textCode: "#000000")
-    var margin = 20
+    var margin = 12
     var display = true
 
     func applyNewStyle(newStyle: CloseBtnTheme) {

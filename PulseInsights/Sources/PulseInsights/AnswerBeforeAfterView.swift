@@ -50,7 +50,7 @@ class AnswerBeforeAfterView: HeightSetableUIView {
             let label = UILabel()
             label.attributedText = formatTool.transferToHtmlFormatInAttribute(
                 $0,
-                fontDetail: LocalConfig.instance.themeStyle.answersHelper.font.getFormater()
+                fontDetail: LocalConfig.instance.themeStyle.mediumFont.getFormater()
             )
             stackView.addArrangedSubview(label)
         }

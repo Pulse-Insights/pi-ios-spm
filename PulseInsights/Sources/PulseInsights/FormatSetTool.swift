@@ -38,12 +38,13 @@ class FormatSetTool {
                                              textAlign: String = "left",
                                              fontWeight: CGFloat = 300.0,
                                              fontStyle: String = "normal") -> NSAttributedString {
+        let processedString = transferToHtmlFormat(strOriString)
 
         let strHtmlFormatHead = """
         <html><head><meta charset="UTF-8"><style type="text/css">body {font-size: \(fontSize)pt; font-family: \(fontFamily); text-align: \(textAlign); font-style: \(fontStyle); font-weight: \(fontWeight)}</style></head><body>
         """
         let strHtmlFormatFooter = "</body></html>"
-        let fullRawText = "\(strHtmlFormatHead)\(strOriString)\(strHtmlFormatFooter)"
+        let fullRawText = "\(strHtmlFormatHead)\(processedString)\(strHtmlFormatFooter)"
         
         guard let data = fullRawText.data(using: .unicode, allowLossyConversion: true),
               let attrStr = try? NSMutableAttributedString(
@@ -57,7 +58,7 @@ class FormatSetTool {
             attrStr.addAttributes([.obliqueness: 0.2], range: NSRange(location: 0, length: attrStr.string.utf16.count))
         }
 
-        let systemFont = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: fontWeight == 700 ? .bold : .regular)
+        let systemFont = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: fontWeight >= 700 ? .bold : .regular)
         attrStr.addAttributes([.font: systemFont], range: NSRange(location: 0, length: attrStr.string.utf16.count))
 
         let style = NSMutableParagraphStyle()
