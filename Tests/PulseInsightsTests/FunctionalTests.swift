@@ -116,7 +116,7 @@ final class PulseInsightsFunctionalTests: XCTestCase {
     func testTimerActivity_IndirectlyThroughScanFrequency() {
         let sut = PulseInsights("test-account-id")
         sut.switchSurveyScan(true)
-        
+        sut.setHost("testDomain")
         LocalConfig.instance.iSurveyEventCode = Define.piEventCodeAccountReseted
         
         let expectation = XCTestExpectation(description: "API call completed")
@@ -150,6 +150,7 @@ final class PulseInsightsFunctionalTests: XCTestCase {
     // MARK: serve
     func testServe_ShouldCallAPIAndHandleResponse() async throws {
         let sut = PulseInsights("test-account-id")
+        sut.setHost("testDomain")
         let serveExpectation = XCTestExpectation(description: "Serve API call completed")
         let questionDetailExpectation = XCTestExpectation(description: "Question Detail API call completed")
         
