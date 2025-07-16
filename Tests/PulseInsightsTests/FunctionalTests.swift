@@ -288,6 +288,7 @@ final class PulseInsightsFunctionalTests: XCTestCase {
     // MARK: present()
     func testPresent_WithValidSurveyID_ShouldFetchAndDisplaySurvey() async throws {
         let sut = PulseInsights("test-account-id")
+        sut.setHost("testDomain")
         let surveyInfoExpectation = XCTestExpectation(description: "Survey info API call completed")
         let questionDetailExpectation = XCTestExpectation(description: "Question detail API call completed")
         
