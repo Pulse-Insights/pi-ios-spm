@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'PulseInsightsSPM'
   s.module_name      = 'PulseInsights'
-  s.version          = '1.0.13'
+  s.version          = '1.0.14'
   s.summary          = 'PulseInsights survey solution for iOS app.'
   
   # This description is used to generate tags and improve search results.
